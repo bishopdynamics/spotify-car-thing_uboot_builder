@@ -13,12 +13,15 @@ We need to find the firmware blobs for `g12a` in order to generate a working ima
 
 ## How to use this
 
+My test machine is x86_64 running Ubuntu 22.04.1 LTS. 
+
 Almost everything here is contained in only two files: `Dockerfile` and `makeimage.sh`. 
 The `docker-compose.yml` is not particularly necssary, just how I am used to working.
 
 Please note that `docker-compose.yml` and `test.sh` both reference the image by name: `bishopdynamics/car-thing-builder:latest`, which is something you should probably change.
 
 To build the image:
+* if you have not already done so, install docker: `sudo apt-get install docker docker-compose`
 * run `./build.sh` to create the docker container
 * run `./test.sh` which will run the container, executing `makeimage.sh` to do the work.
 * resulting image file can be found: `./bin/u-boot.bin`
