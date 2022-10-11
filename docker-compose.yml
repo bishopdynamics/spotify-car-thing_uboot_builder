@@ -1,0 +1,10 @@
+
+# Example config
+
+version: '3.2'
+
+services:
+  car-thing-builder:
+    image: bishopdynamics/car-thing-builder:latest
+    container_name: car_thing_builder
+    build: .
