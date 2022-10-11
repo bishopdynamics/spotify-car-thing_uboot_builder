@@ -1,10 +1,6 @@
 # Build u-boot for Spotify Car Thing
 
-WIP
-
-# State of this repo
-
-This battlestation is NOT currently fully operational. 
+WIP - This battlestation is NOT currently operational.
 
 I am still working through the details to get the complete bootable image created.
 
@@ -12,9 +8,10 @@ Right now, u-boot builds, and we can assemble and sign/encrypt the image, BUT it
 
 I have uploaded this project in its current state with the hope that others will find it useful, and maybe even figure out how to make it work.
 
-What is next? We need to find the firmware blobs for `g12a` in order to generate a working image.
+## What is next? 
+We need to find the firmware blobs for `g12a` in order to generate a working image.
 
-# How to use this
+## How to use this
 
 Almost everything here is contained in only two files: `Dockerfile` and `makeimage.sh`. 
 The `docker-compose.yml` is not particularly necssary, just how I am used to working.
@@ -28,14 +25,13 @@ To build the image:
 
 The script `test.sh` takes an optional argument, the entrypoint. So you can start a container without running the build script by doing: `./test.sh /bin/bash`, and then run the script at `/makeimage.sh`
 
-# How to boot this
+## How to boot this
 
 This does not actually boot at the moment, but this is how to do it anyway.
 
-You need to boot the device in maskrom mode, by holding all four buttons (all except pwr button on far right, recessed a little) at the top while powering on the device. If you have a serial console hooked up you will see this:
+You need to boot the device in maskrom mode, by holding all four buttons (all except pwr button on far right, recessed a little) at the top while powering on the device. If you have a serial console hooked up you will see this upon boot:
 
 `G12A:BL:0253b8:61aa2d;FEAT:F0F821B0:12020;POC:D;RCY:0;USB:0;`
-
 
 
 Check out [this page](https://wiki.radxa.com/Zero/dev/maskrom#Install_required_tools)
@@ -45,7 +41,7 @@ to install `pyamlboot`. Then you can use `boot-g12.py` to sideload the image lik
 
 On the serial console you will see `CHK:1F;#` which I *think* means signature check error, or maybe checksum error.
 
-# History
+## History
 Spotify recently discontinued their "Car Thing" product, which is a small device intended to be mounted on
 your dashboard, to control spotify for users who do not have Android Auto or Apple Car Play. 
 
