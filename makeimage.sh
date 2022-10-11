@@ -4,7 +4,7 @@
 #   this is adapted from here: http://wiki.loverpi.com/faq:sbc:libre-aml-s805x-howto-compile-u-boot
 
 
-
+# an echo that will stand out in the logs
 function announce () {
     echo "##########################################################################################"
     echo "##############################  $*  #######################################"
@@ -13,16 +13,14 @@ function announce () {
 
 set -e
 
-THIS_CONFIG="superbird_production_defconfig"  # config used for u-boot build
-
-
+UBOOT_CONFIG="superbird_production_defconfig"  # config used for u-boot build
 
 # TODO: these instructions were for "gxl" but we actually want "g12a"
 #   options:
 #       Amlogic Meson S905 (GXBB)
 #       Amlogic Meson S905X (GXL)
 #       Amlogic Meson S905X2 (G12A)
-#   Car Thing uses S905D2, and in https://github.com/spsgsb/uboot superbird references g12a, so I think thats what we need
+#   Car Thing uses S905D2, and prints to console G12A, and in https://github.com/spsgsb/uboot superbird references g12a, so I think thats what we need
 
 # For the above reason, I went ahead and abstracted the CPU Firmware Model to a variable
 CPU_FIRMWARE_MODEL="gxl"
@@ -35,7 +33,7 @@ announce "Building u-boot for superbird"
 git clone --depth 1 https://github.com/spsgsb/uboot -b buildroot-openlinux-201904-g12a /workspace/u-boot
 cd /workspace/u-boot
 export CROSS_COMPILE=aarch64-none-elf-
-make "$THIS_CONFIG"
+make "$UBOOT_CONFIG"
 make 
 
 # now lets build the blobs that we need from amlogic
