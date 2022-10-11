@@ -2,6 +2,8 @@
 
 # test the container. 
 #   if you pass an argument, it will try to use that as the entrypoint instead of /makeimage.sh
+#   local folder ./bin is mounted inside container at /output_bin, this is where the final image will be placed
+
 
 IMAGE_NAME="bishopdynamics/car-thing-builder:latest"
 TIMEZONE="America/Los Angeles"
