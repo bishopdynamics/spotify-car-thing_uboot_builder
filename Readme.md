@@ -1,5 +1,7 @@
 # Build u-boot for Spotify Car Thing
 
+NOTE: I haven't dug into their research yet to reproduce their binaries, but [this repo](https://github.com/frederic/superbird-bulkcmd) looks like they managed to get root access! I will get more info from them and update this repo soon.
+
 WIP - This battlestation is NOT currently operational.
 
 I am still working through the details to get the complete bootable image created.
